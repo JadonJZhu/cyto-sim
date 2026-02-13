@@ -31,19 +31,32 @@ def generate_cell_data(n_cells):
         # 4. Simulate Gene B (The "Housekeeper" - e.g., GAPDH)
         # This gene should NOT change much with dose (Control)
         gene_b_exp = 10.0 + np.random.normal(0, 0.5)
-        
+
+        # 5. Simulate additional genome-wide genes to enable PCA analysis
+        # Some genes respond to cytokine (inflammatory), others are housekeeping (stable)
+        gene_c_exp = baseline + (dose * 0.08) + np.random.normal(0, 1.0)  # Moderate responder
+        gene_d_exp = baseline + (dose * 0.05) + np.random.normal(0, 0.8)  # Weak responder
+        gene_e_exp = 9.5 + np.random.normal(0, 0.3)  # Housekeeping (stable)
+        gene_f_exp = baseline + (dose * 0.12) + np.random.normal(0, 1.2)  # Strong responder
+        gene_g_exp = 8.8 + np.random.normal(0, 0.4)  # Housekeeping (stable)
+
         data.append({
             'Donor_ID': donor,
             'Cytokine_Dose': dose,
             'Marker_Gene_Response': max(0, gene_a_exp), # Expression can't be negative
-            'Housekeeping_Gene': gene_b_exp
+            'Housekeeping_Gene': gene_b_exp,
+            'Inflammatory_Gene_1': max(0, gene_c_exp),
+            'Inflammatory_Gene_2': max(0, gene_d_exp),
+            'Housekeeping_Gene_2': gene_e_exp,
+            'Cytokine_Responder': max(0, gene_f_exp),
+            'Stable_Gene': gene_g_exp
         })
         
     return pd.DataFrame(data)
 
 # --- Generate and Save ---
 df = generate_cell_data(NUM_CELLS)
-df.to_csv('synthetic_cell_village_data.csv', index=False)
+df.to_csv('data.csv', index=False)
 
 print("✅ Data generated! First 5 rows:")
 print(df.head())
