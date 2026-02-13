@@ -51,4 +51,4 @@ A "virtual experiment" was conducted to predict gene expression across a continu
 - **Seaborn & Matplotlib** (Scientific Visualization)
 
 ---
-*This project demonstrates proficiency in computational biology, machine learning model selection, and data visualization.*
+*This project demonstrates proficiency in computational biology, machine learning model selection, and data visualization.*a
