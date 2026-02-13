@@ -1,4 +1,4 @@
-# Cytokine Dose-Response Simulation
+# CytoDose: A Cell Response Simulation
 
 ## Project Overview
 This project simulates and models **cytokine dose-response relationships** using **machine learning** and **synthetic biological data**. It demonstrates a complete computational biology workflow—from data generation to predictive modeling—highlighting the critical importance of model selection in capturing biological realism.
