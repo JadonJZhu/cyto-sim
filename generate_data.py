@@ -56,7 +56,6 @@ def generate_cell_data(n_cells):
 
 # --- Generate and Save ---
 df = generate_cell_data(NUM_CELLS)
-df.to_csv('data.csv', index=False)
+df.to_csv('data/data.csv', index=False)
 
-print("✅ Data generated! First 5 rows:")
 print(df.head())
