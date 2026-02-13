@@ -1,0 +1,22 @@
+name: cyto-sim
+channels:
+  - conda-forge    # Best source for data science packages
+  - nodefaults     # Prevents conflicts with the standard Anaconda channel
+dependencies:
+  # Core Runtime
+  - python=3.9.* # Pins to 3.9.x to ensure patch updates (security) but no minor upgrades
+
+  # Data Manipulation & Math
+  - numpy>=1.24,<2.0    # Pinning major versions prevents API breakage
+  - pandas>=2.0         # Ensures modern pandas features
+
+  # Visualization
+  - matplotlib>=3.7
+  - seaborn>=0.12
+
+  # Machine Learning
+  - scikit-learn>=1.3
+
+  # Tooling
+  - jupytext>=1.14
+
